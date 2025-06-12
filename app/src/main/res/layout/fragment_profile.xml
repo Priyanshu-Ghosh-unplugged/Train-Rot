@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Profile Header Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                style="@style/Widget.TrainRot.CardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:padding="16dp">
+
+                    <!-- Profile Picture -->
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/profile_picture"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginBottom="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_profile"
+                        app:shapeAppearanceOverlay="@style/CircleImageView"
+                        app:strokeColor="@color/primary"
+                        app:strokeWidth="2dp"/>
+
+                    <TextView
+                        android:id="@+id/name_text"
+                        style="@style/TextAppearance.TrainRot.Headline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/profile_name"/>
+
+                    <TextView
+                        android:id="@+id/email_text"
+                        style="@style/TextAppearance.TrainRot.Subtitle1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_email"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Profile Details Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                style="@style/Widget.TrainRot.CardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextAppearance.TrainRot.Headline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/profile_details"/>
+
+                    <!-- Name Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/name_layout"
+                        style="@style/Widget.TrainRot.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="@string/profile_name">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/name_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Email Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/email_layout"
+                        style="@style/Widget.TrainRot.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="@string/profile_email">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Phone Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/phone_layout"
+                        style="@style/Widget.TrainRot.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="@string/profile_phone">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/phone_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Save Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/save_button"
+                        style="@style/Widget.TrainRot.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/common_save"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Additional Features Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.TrainRot.CardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextAppearance.TrainRot.Headline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/profile_features"/>
+
+                    <!-- Preferences Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/preferences_button"
+                        style="@style/Widget.TrainRot.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/profile_preferences"
+                        app:icon="@drawable/ic_preferences"
+                        app:iconGravity="textStart"/>
+
+                    <!-- Family Group Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/family_group_button"
+                        style="@style/Widget.TrainRot.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/profile_family"
+                        app:icon="@drawable/ic_family"
+                        app:iconGravity="textStart"/>
+
+                    <!-- History Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/history_button"
+                        style="@style/Widget.TrainRot.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_history"
+                        app:icon="@drawable/ic_history"
+                        app:iconGravity="textStart"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Progress Bar -->
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.TrainRot.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"/>
+
+            <!-- Error Text -->
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textColor="@color/error"
+                android:visibility="gone"
+                style="@style/TextAppearance.TrainRot.Body1"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

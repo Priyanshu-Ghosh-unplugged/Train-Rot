@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_journey">
+
+    <fragment
+        android:id="@+id/navigation_journey"
+        android:name="com.ghosh.trainrot.ui.journey.JourneyFragment"
+        android:label="@string/title_journey">
+        <action
+            android:id="@+id/action_journey_to_booking"
+            app:destination="@id/navigation_booking" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_tatkal"
+        android:name="com.ghosh.trainrot.ui.tatkal.TatkalFragment"
+        android:label="@string/title_tatkal" />
+
+    <fragment
+        android:id="@+id/navigation_tracking"
+        android:name="com.ghosh.trainrot.ui.tracking.TrackingFragment"
+        android:label="@string/title_tracking">
+        <action
+            android:id="@+id/action_tracking_to_ar"
+            app:destination="@id/navigation_ar" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.ghosh.trainrot.ui.profile.ProfileFragment"
+        android:label="@string/title_profile">
+        <action
+            android:id="@+id/action_profile_to_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_booking"
+        android:name="com.ghosh.trainrot.ui.booking.BookingFragment"
+        android:label="@string/title_booking" />
+
+    <fragment
+        android:id="@+id/navigation_ar"
+        android:name="com.ghosh.trainrot.ui.ar.ARFragment"
+        android:label="@string/title_ar" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.ghosh.trainrot.ui.settings.SettingsFragment"
+        android:label="@string/title_settings" />
+
+</navigation>

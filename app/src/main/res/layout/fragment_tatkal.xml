@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Train Details -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/train_number_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/tatkal_train">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/train_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Station Selection -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/from_station_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/journey_from">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/from_station"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/to_station_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/journey_to">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/to_station"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Date Selection -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/date_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/journey_date">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/journey_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Quota Selection -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/quota_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/tatkal_quota">
+
+                <AutoCompleteTextView
+                    android:id="@+id/quota_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Payment Method -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/tatkal_payment"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+            <RadioGroup
+                android:id="@+id/payment_method_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/payment_upi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="UPI" />
+
+                <RadioButton
+                    android:id="@+id/payment_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Credit/Debit Card" />
+
+                <RadioButton
+                    android:id="@+id/payment_netbanking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Net Banking" />
+
+            </RadioGroup>
+
+            <!-- Start Booking Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/start_booking_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/tatkal_start" />
+
+            <!-- Queue Position -->
+            <TextView
+                android:id="@+id/queue_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
+            <!-- Booking Status -->
+            <TextView
+                android:id="@+id/booking_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
+            <!-- Progress Bar -->
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <!-- Error Text -->
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

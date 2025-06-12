@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="Theme.TrainRot" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <!-- Secondary brand colors -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorOnBackground">@color/on_background</item>
+        
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        
+        <!-- Shape styles -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.TrainRot.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.TrainRot.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.TrainRot.LargeComponent</item>
+    </style>
+
+    <!-- Shape Appearances -->
+    <style name="ShapeAppearance.TrainRot.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="ShapeAppearance.TrainRot.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="ShapeAppearance.TrainRot.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="TextAppearance.TrainRot.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.TrainRot.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.TrainRot.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.TrainRot.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="Widget.TrainRot.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="Widget.TrainRot.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="strokeColor">@color/primary</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="Widget.TrainRot.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="contentPadding">16dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+    </style>
+
+    <!-- Input Field Styles -->
+    <style name="Widget.TrainRot.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="hintTextColor">@color/primary</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+    </style>
+
+    <!-- Profile Picture Style -->
+    <style name="CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Progress Bar Style -->
+    <style name="Widget.TrainRot.ProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">@color/primary</item>
+    </style>
+</resources> 
