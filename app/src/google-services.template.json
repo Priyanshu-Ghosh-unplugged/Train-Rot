@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "716158811012",
-    "project_id": "train-rot",
-    "storage_bucket": "train-rot.firebasestorage.app"
+    "project_number": "YOUR_PROJECT_NUMBER",
+    "project_id": "YOUR_PROJECT_ID",
+    "storage_bucket": "YOUR_STORAGE_BUCKET"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:716158811012:android:2061825de6d8fa9c78bbd1",
+        "mobilesdk_app_id": "YOUR_MOBILE_SDK_APP_ID",
         "android_client_info": {
           "package_name": "com.ghosh.trainrot"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBTgIyJpkx5AfkDm45zml-2pVNmaOtWwjY"
+          "current_key": "YOUR_API_KEY"
         }
       ],
       "services": {
@@ -26,4 +26,4 @@
     }
   ],
   "configuration_version": "1"
-}
+} 
