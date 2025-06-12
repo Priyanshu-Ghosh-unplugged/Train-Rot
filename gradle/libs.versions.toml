@@ -1,24 +1,80 @@
 [versions]
 agp = "8.7.1"
+core = "1.49.0"
+firebaseBom = "33.15.0"
+googleServices = "4.4.1"
+hilt = "2.50"
+imageLabeling = "17.0.9"
+kotlin = "1.9.22"
+ksp = "1.9.22-1.0.17"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.1"
 material = "1.12.0"
 constraintlayout = "2.2.1"
+materialVersion = "1.11.0"
 navigationFragment = "2.9.0"
 navigationUi = "2.9.0"
+playServicesLocation = "21.3.0"
+playServicesMaps = "19.2.0"
+roomCompiler = "2.7.1"
+roomKtx = "2.7.1"
+roomRuntime = "2.7.1"
+apollo = "3.8.2"
+lottie = "6.3.0"
+maps = "18.2.0"
+location = "21.1.0"
+arcore = "1.40.0"
+mlkitVision = "17.3.0"
+mlkitImageLabeling = "17.0.7"
+razorpay = "1.6.33"
+web3j = "4.9.8"
+mockito = "5.8.0"
+mockitoInline = "5.2.0"
+litert = "1.3.0"
 
 [libraries]
+core-v1490 = { module = "com.google.ar:core", version.ref = "core" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-auth = { module = "com.google.firebase:firebase-auth" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-database = { module = "com.google.firebase:firebase-database" }
+firebase-storage = { module = "com.google.firebase:firebase-storage" }
+image-labeling-v1709 = { module = "com.google.mlkit:image-labeling", version.ref = "imageLabeling" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+material-v1110 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
+play-services-location-v2130 = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
+play-services-maps-v1920 = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMaps" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
+maps = { module = "com.google.android.gms:play-services-maps", version.ref = "maps" }
+location = { module = "com.google.android.gms:play-services-location", version.ref = "location" }
+arcore = { module = "com.google.ar:core", version.ref = "arcore" }
+mlkit-vision = { module = "com.google.mlkit:vision-common", version.ref = "mlkitVision" }
+mlkit-image-labeling = { module = "com.google.mlkit:image-labeling", version.ref = "mlkitImageLabeling" }
+razorpay = { module = "com.razorpay:checkout", version.ref = "razorpay" }
+web3j = { module = "org.web3j:core", version.ref = "web3j" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoInline" }
+litert = { group = "com.google.ai.edge.litert", name = "litert", version.ref = "litert" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 

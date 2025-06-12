@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
-    id("com.google.gms.google-services")
-    id("com.google.dagger.hilt.android")
-    id("kotlin-kapt")
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -47,52 +48,52 @@ dependencies {
     implementation(libs.navigation.ui)
     
     // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-database")
-    implementation("com.google.firebase:firebase-storage")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
+    implementation(libs.firebase.storage)
     
     // Room Database
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.litert)
+    ksp(libs.room.compiler)
     
     // GraphQL
-    implementation("com.apollographql.apollo3:apollo-runtime:3.8.2")
+    implementation(libs.apollo.runtime)
     
     // Dependency Injection
-    implementation("com.google.dagger:hilt-android:2.50")
-    kapt("com.google.dagger:hilt-android-compiler:2.50")
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
     
     // Material Design 3
-    implementation("com.google.android.material:material:1.11.0")
+    implementation(libs.material.v1110)
     
     // Lottie Animations
-    implementation("com.airbnb.android:lottie:6.3.0")
+    implementation(libs.lottie)
     
     // Maps and Location
-    implementation("com.google.android.gms:play-services-maps:18.2.0")
-    implementation("com.google.android.gms:play-services-location:21.1.0")
+    implementation(libs.play.services.maps.v1920)
+    implementation(libs.play.services.location.v2130)
     
     // AR Core
-    implementation("com.google.ar:core:1.40.0")
+    implementation(libs.core.v1490)
     
     // ML Kit for CAPTCHA solving
-    implementation("com.google.mlkit:vision-common:17.3.0")
-    implementation("com.google.mlkit:image-labeling:17.0.7")
+    implementation(libs.mlkit.vision)
+    implementation(libs.image.labeling.v1709)
     
     // Payment Integration
-    implementation("com.razorpay:checkout:1.6.33")
+    implementation(libs.razorpay)
     
     // Blockchain Integration
-    implementation("org.web3j:core:4.9.8")
-    implementation("com.walletconnect:walletconnect-client:1.0.0")
+    implementation(libs.web3j)
     
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    testImplementation("org.mockito:mockito-core:5.8.0")
-    testImplementation("org.mockito:mockito-inline:5.2.0")
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
 }
