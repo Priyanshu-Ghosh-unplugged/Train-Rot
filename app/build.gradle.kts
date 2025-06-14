@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.google.services)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.navigation.safeargs)
 }
 
 android {
@@ -30,12 +31,53 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding = true
         dataBinding = true
+    }
+    packaging {
+        resources {
+            excludes += setOf(
+                "META-INF/DEPENDENCIES",
+                "META-INF/LICENSE",
+                "META-INF/LICENSE.txt",
+                "META-INF/license.txt",
+                "META-INF/NOTICE",
+                "META-INF/NOTICE.txt",
+                "META-INF/notice.txt",
+                "META-INF/ASL2.0",
+                "META-INF/*.kotlin_module",
+                "META-INF/{AL2.0,LGPL2.1}",
+                "META-INF/versions/9/**",
+                "META-INF/versions/9/module-info.class",
+                "META-INF/versions/9/previous-compilation-data.bin*",
+                "META-INF/versions/9/previous-compilation-data.bin.*",
+                "META-INF/versions/9/previous-compilation-data.bin.tmp*",
+                "META-INF/versions/9/previous-compilation-data.bin.tmp.*"
+            )
+            pickFirsts += setOf(
+                "META-INF/versions/9/module-info.class",
+                "META-INF/versions/9/previous-compilation-data.bin"
+            )
+            merges += setOf(
+                "META-INF/versions/9/module-info.class",
+                "META-INF/versions/9/previous-compilation-data.bin"
+            )
+        }
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.jetbrains.kotlin:kotlin-stdlib:${libs.versions.kotlin.get()}")
+        force("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${libs.versions.kotlin.get()}")
+        force("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${libs.versions.kotlin.get()}")
     }
 }
 
@@ -47,6 +89,22 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     
+    // Apache Commons Math3
+    implementation(libs.commons.math3)
+    
+    // ThreeTenABP for time API compatibility
+    implementation(libs.threetenabp)
+    
+    // Selenium WebDriver
+    implementation(libs.selenium.java)
+    implementation(libs.selenium.chrome.driver)
+    implementation(libs.selenium.support)
+    
+    // TensorFlow Lite
+    implementation(libs.tensorflow.lite)
+    implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.metadata)
+    
     // Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
@@ -57,7 +115,6 @@ dependencies {
     // Room Database
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    implementation(libs.litert)
     ksp(libs.room.compiler)
     
     // GraphQL

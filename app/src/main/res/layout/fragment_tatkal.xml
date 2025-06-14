@@ -97,7 +97,8 @@
                     android:id="@+id/quota_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:contentDescription="@string/tatkal_quota_description" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

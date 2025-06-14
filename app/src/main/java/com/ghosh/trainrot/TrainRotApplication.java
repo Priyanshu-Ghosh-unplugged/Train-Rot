@@ -3,6 +3,7 @@ package com.ghosh.trainrot;
 import android.app.Application;
 import dagger.hilt.android.HiltAndroidApp;
 import com.google.firebase.FirebaseApp;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
 @HiltAndroidApp
 public class TrainRotApplication extends Application {
@@ -11,5 +12,6 @@ public class TrainRotApplication extends Application {
         super.onCreate();
         // Initialize Firebase
         FirebaseApp.initializeApp(this);
+        AndroidThreeTen.init(this);
     }
 } 

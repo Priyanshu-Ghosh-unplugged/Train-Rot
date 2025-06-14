@@ -35,6 +35,10 @@ public class RealTimeService {
         realtimeRef.child("issues").push().setValue(report);
     }
 
+    public void startARNavigation(String destination) {
+        navigationService.startARNavigation(destination);
+    }
+
     public static class IssueReport {
         private String type; // DELAY, CROWD, FACILITY, OTHER
         private String description;

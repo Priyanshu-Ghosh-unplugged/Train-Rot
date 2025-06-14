@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Setup Navigation
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         
         // Configure the ActionBar

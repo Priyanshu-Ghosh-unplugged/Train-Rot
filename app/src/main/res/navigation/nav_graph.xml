@@ -3,53 +3,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/navigation_journey">
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.ghosh.trainrot.features.home.HomeFragment"
+        android:label="@string/home">
+        
+        <action
+            android:id="@+id/actionNavigationHomeToNavigationJourney"
+            app:destination="@id/navigation_journey">
+            <argument
+                android:name="journeyId"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null" />
+        </action>
+        
+        <action
+            android:id="@+id/actionNavigationHomeToNavigationBookings"
+            app:destination="@id/navigation_bookings">
+            <argument
+                android:name="bookingId"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null" />
+        </action>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_journey"
-        android:name="com.ghosh.trainrot.ui.journey.JourneyFragment"
-        android:label="@string/title_journey">
-        <action
-            android:id="@+id/action_journey_to_booking"
-            app:destination="@id/navigation_booking" />
-    </fragment>
+        android:name="com.ghosh.trainrot.features.journey.JourneyFragment"
+        android:label="@string/journey" />
 
     <fragment
-        android:id="@+id/navigation_tatkal"
-        android:name="com.ghosh.trainrot.ui.tatkal.TatkalFragment"
-        android:label="@string/title_tatkal" />
-
-    <fragment
-        android:id="@+id/navigation_tracking"
-        android:name="com.ghosh.trainrot.ui.tracking.TrackingFragment"
-        android:label="@string/title_tracking">
-        <action
-            android:id="@+id/action_tracking_to_ar"
-            app:destination="@id/navigation_ar" />
-    </fragment>
+        android:id="@+id/navigation_bookings"
+        android:name="com.ghosh.trainrot.features.bookings.BookingsFragment"
+        android:label="@string/bookings" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.ghosh.trainrot.ui.profile.ProfileFragment"
-        android:label="@string/title_profile">
+        android:name="com.ghosh.trainrot.features.user.UserProfileFragment"
+        android:label="@string/profile" />
+
+    <fragment
+        android:id="@+id/nav_travel_preferences"
+        android:name="com.ghosh.trainrot.features.preferences.TravelPreferencesFragment"
+        android:label="@string/travel_preferences" />
+
+    <fragment
+        android:id="@+id/nav_family_members"
+        android:name="com.ghosh.trainrot.features.user.FamilyMembersFragment"
+        android:label="@string/family_members" />
+
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="com.ghosh.trainrot.features.help.HelpFragment"
+        android:label="@string/help" />
+
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.ghosh.trainrot.features.feedback.FeedbackFragment"
+        android:label="@string/feedback" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.ghosh.trainrot.features.settings.SettingsFragment"
+        android:label="@string/settings" />
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.ghosh.trainrot.FirstFragment"
+        android:label="FirstFragment"
+        tools:layout="@layout/fragment_first">
         <action
-            android:id="@+id/action_profile_to_settings"
-            app:destination="@id/navigation_settings" />
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_booking"
-        android:name="com.ghosh.trainrot.ui.booking.BookingFragment"
-        android:label="@string/title_booking" />
-
-    <fragment
-        android:id="@+id/navigation_ar"
-        android:name="com.ghosh.trainrot.ui.ar.ARFragment"
-        android:label="@string/title_ar" />
-
-    <fragment
-        android:id="@+id/navigation_settings"
-        android:name="com.ghosh.trainrot.ui.settings.SettingsFragment"
-        android:label="@string/title_settings" />
+        android:id="@+id/SecondFragment"
+        android:name="com.ghosh.trainrot.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 
 </navigation>

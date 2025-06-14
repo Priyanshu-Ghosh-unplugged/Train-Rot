@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/nav_journey"
+            android:icon="@drawable/ic_journey"
+            android:title="@string/journey" />
+
+        <item
+            android:id="@+id/nav_bookings"
+            android:icon="@drawable/ic_bookings"
+            android:title="@string/bookings" />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/profile" />
+    </group>
+
+    <item android:title="@string/preferences">
+        <menu>
+            <item
+                android:id="@+id/nav_travel_preferences"
+                android:icon="@drawable/ic_preferences"
+                android:title="@string/travel_preferences" />
+
+            <item
+                android:id="@+id/nav_family_members"
+                android:icon="@drawable/ic_family"
+                android:title="@string/family_members" />
+        </menu>
+    </item>
+
+    <item android:title="@string/support">
+        <menu>
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/ic_help"
+                android:title="@string/help" />
+
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_feedback"
+                android:title="@string/feedback" />
+
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/settings" />
+        </menu>
+    </item>
+</menu> 

@@ -110,7 +110,27 @@ public class TatkalBookingService {
         private List<IRCTCAutomationService.PassengerDetails> passengers;
         private IRCTCAutomationService.PaymentDetails paymentDetails;
 
-        // Getters and setters
+        // Getters
+        public String getUsername() { return username; }
+        public String getPassword() { return password; }
+        public String getTrainNumber() { return trainNumber; }
+        public String getFromStation() { return fromStation; }
+        public String getToStation() { return toStation; }
+        public String getJourneyDate() { return journeyDate; }
+        public String getQuota() { return quota; }
+        public List<IRCTCAutomationService.PassengerDetails> getPassengers() { return passengers; }
+        public IRCTCAutomationService.PaymentDetails getPaymentDetails() { return paymentDetails; }
+
+        // Setters
+        public void setUsername(String username) { this.username = username; }
+        public void setPassword(String password) { this.password = password; }
+        public void setTrainNumber(String trainNumber) { this.trainNumber = trainNumber; }
+        public void setFromStation(String fromStation) { this.fromStation = fromStation; }
+        public void setToStation(String toStation) { this.toStation = toStation; }
+        public void setJourneyDate(String journeyDate) { this.journeyDate = journeyDate; }
+        public void setQuota(String quota) { this.quota = quota; }
+        public void setPassengers(List<IRCTCAutomationService.PassengerDetails> passengers) { this.passengers = passengers; }
+        public void setPaymentDetails(IRCTCAutomationService.PaymentDetails paymentDetails) { this.paymentDetails = paymentDetails; }
     }
 
     public interface BookingCallback {

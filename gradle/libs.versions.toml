@@ -1,7 +1,7 @@
 [versions]
 agp = "8.7.1"
 core = "1.49.0"
-firebaseBom = "33.15.0"
+firebaseBom = "32.7.2"
 googleServices = "4.4.1"
 hilt = "2.50"
 imageLabeling = "17.0.9"
@@ -16,6 +16,8 @@ constraintlayout = "2.2.1"
 materialVersion = "1.11.0"
 navigationFragment = "2.9.0"
 navigationUi = "2.9.0"
+navigationSafeArgs = "2.9.0"
+commonsMath3 = "3.6.1"
 playServicesLocation = "21.3.0"
 playServicesMaps = "19.2.0"
 roomCompiler = "2.7.1"
@@ -29,6 +31,17 @@ arcore = "1.40.0"
 mlkitVision = "17.3.0"
 mlkitImageLabeling = "17.0.7"
 razorpay = "1.6.33"
+selenium = "3.141.59"
+seleniumChromeDriverVersion = "3.141.59"
+seleniumJava = "4.18.1"
+seleniumJavaVersion = "3.141.59"
+seleniumSupport = "4.18.1"
+seleniumSupportVersion = "3.141.59"
+tensorflowLite = "2.14.0"
+tensorflowLiteMetadata = "0.4.4"
+tensorflowLiteSupport = "0.4.4"
+threetenabp = "1.4.6"
+threetenbp = "1.6.8"
 web3j = "4.9.8"
 mockito = "5.8.0"
 mockitoInline = "5.2.0"
@@ -66,10 +79,19 @@ arcore = { module = "com.google.ar:core", version.ref = "arcore" }
 mlkit-vision = { module = "com.google.mlkit:vision-common", version.ref = "mlkitVision" }
 mlkit-image-labeling = { module = "com.google.mlkit:image-labeling", version.ref = "mlkitImageLabeling" }
 razorpay = { module = "com.razorpay:checkout", version.ref = "razorpay" }
+selenium-java = { module = "org.seleniumhq.selenium:selenium-java", version.ref = "selenium" }
+selenium-chrome-driver = { module = "org.seleniumhq.selenium:selenium-chrome-driver", version.ref = "selenium" }
+selenium-support = { module = "org.seleniumhq.selenium:selenium-support", version.ref = "selenium" }
+tensorflow-lite = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflowLite" }
+tensorflow-lite-metadata = { module = "org.tensorflow:tensorflow-lite-metadata", version.ref = "tensorflowLiteMetadata" }
+tensorflow-lite-support = { module = "org.tensorflow:tensorflow-lite-support", version.ref = "tensorflowLiteSupport" }
+threetenabp = { module = "com.jakewharton.threetenabp:threetenabp", version.ref = "threetenabp" }
+threetenbp = { module = "org.threeten:threetenbp", version.ref = "threetenbp" }
 web3j = { module = "org.web3j:core", version.ref = "web3j" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
 mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoInline" }
 litert = { group = "com.google.ai.edge.litert", name = "litert", version.ref = "litert" }
+commons-math3 = { group = "org.apache.commons", name = "commons-math3", version.ref = "commonsMath3" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -77,4 +99,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref = "navigationSafeArgs" }
 

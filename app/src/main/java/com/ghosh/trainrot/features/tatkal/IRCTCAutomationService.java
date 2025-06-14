@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
+import org.openqa.selenium.support.ui.FluentWait;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -23,7 +23,7 @@ public class IRCTCAutomationService {
     private final Context context;
     private final CaptchaSolver captchaSolver;
     private WebDriver driver;
-    private WebDriverWait wait;
+    private FluentWait<WebDriver> wait;
 
     @Inject
     public IRCTCAutomationService(Context context, CaptchaSolver captchaSolver) {
@@ -41,7 +41,10 @@ public class IRCTCAutomationService {
         options.addArguments("--window-size=1920,1080");
         
         driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_SECONDS));
+        driver.manage().timeouts().implicitlyWait(TIMEOUT_SECONDS, TimeUnit.SECONDS);
+        wait = new FluentWait<>(driver)
+            .withTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+            .pollingEvery(1, TimeUnit.SECONDS);
     }
 
     public void login(String username, String password) throws AutomationException {
@@ -49,7 +52,7 @@ public class IRCTCAutomationService {
             driver.get(IRCTC_URL);
             
             // Wait for login form and enter credentials
-            WebElement usernameField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("userId")));
+            WebElement usernameField = wait.until(driver -> driver.findElement(By.id("userId")));
             WebElement passwordField = driver.findElement(By.id("pwd"));
             
             usernameField.sendKeys(username);
@@ -65,7 +68,7 @@ public class IRCTCAutomationService {
             loginButton.click();
             
             // Wait for successful login
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("user-name")));
+            wait.until(driver -> driver.findElement(By.className("user-name")));
             
         } catch (Exception e) {
             Log.e(TAG, "Login failed", e);
@@ -79,7 +82,7 @@ public class IRCTCAutomationService {
             driver.get(IRCTC_URL);
             
             // Enter station details
-            WebElement fromField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("origin")));
+            WebElement fromField = wait.until(driver -> driver.findElement(By.id("origin")));
             WebElement toField = driver.findElement(By.id("destination"));
             
             fromField.sendKeys(fromStation);
@@ -93,8 +96,8 @@ public class IRCTCAutomationService {
             // Select quota
             WebElement quotaDropdown = driver.findElement(By.id("quota"));
             quotaDropdown.click();
-            WebElement quotaOption = wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//span[contains(text(), '" + quota + "')]")));
+            WebElement quotaOption = wait.until(driver -> 
+                driver.findElement(By.xpath("//span[contains(text(), '" + quota + "')]")));
             quotaOption.click();
             
             // Click search button
@@ -102,7 +105,7 @@ public class IRCTCAutomationService {
             searchButton.click();
             
             // Wait for results
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("train-list")));
+            wait.until(driver -> driver.findElement(By.className("train-list")));
             
         } catch (Exception e) {
             Log.e(TAG, "Train search failed", e);
@@ -113,12 +116,12 @@ public class IRCTCAutomationService {
     public void bookTatkalTicket(String trainNumber, List<PassengerDetails> passengers) throws AutomationException {
         try {
             // Find and click on the train
-            WebElement trainElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+            WebElement trainElement = wait.until(driver -> driver.findElement(
                 By.xpath("//div[contains(@class, 'train-list')]//div[contains(text(), '" + trainNumber + "')]")));
             trainElement.click();
             
             // Wait for booking form
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.id("passenger-form")));
+            wait.until(driver -> driver.findElement(By.id("passenger-form")));
             
             // Fill passenger details
             for (int i = 0; i < passengers.size(); i++) {
@@ -134,7 +137,7 @@ public class IRCTCAutomationService {
             bookButton.click();
             
             // Wait for payment page
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("payment-options")));
+            wait.until(driver -> driver.findElement(By.className("payment-options")));
             
         } catch (Exception e) {
             Log.e(TAG, "Ticket booking failed", e);
@@ -145,7 +148,7 @@ public class IRCTCAutomationService {
     public void processPayment(PaymentDetails paymentDetails) throws AutomationException {
         try {
             // Select payment method
-            WebElement paymentMethod = wait.until(ExpectedConditions.presenceOfElementLocated(
+            WebElement paymentMethod = wait.until(driver -> driver.findElement(
                 By.xpath("//div[contains(text(), '" + paymentDetails.getMethod() + "')]")));
             paymentMethod.click();
             
@@ -167,7 +170,7 @@ public class IRCTCAutomationService {
             payButton.click();
             
             // Wait for payment confirmation
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("payment-success")));
+            wait.until(driver -> driver.findElement(By.className("payment-success")));
             
         } catch (Exception e) {
             Log.e(TAG, "Payment processing failed", e);
@@ -215,7 +218,7 @@ public class IRCTCAutomationService {
             WebElement berthDropdown = driver.findElement(By.id("berth-preference-" + (i + 1)));
             berthDropdown.click();
             
-            WebElement berthOption = wait.until(ExpectedConditions.presenceOfElementLocated(
+            WebElement berthOption = wait.until(driver -> driver.findElement(
                 By.xpath("//span[contains(text(), '" + passenger.getBerthPreference() + "')]")));
             berthOption.click();
         }
@@ -240,7 +243,7 @@ public class IRCTCAutomationService {
         WebElement bankDropdown = driver.findElement(By.id("bank-select"));
         bankDropdown.click();
         
-        WebElement bankOption = wait.until(ExpectedConditions.presenceOfElementLocated(
+        WebElement bankOption = wait.until(driver -> driver.findElement(
             By.xpath("//span[contains(text(), '" + paymentDetails.getBankName() + "')]")));
         bankOption.click();
     }
@@ -263,7 +266,17 @@ public class IRCTCAutomationService {
         private String gender;
         private String berthPreference;
         
-        // Getters and setters
+        // Getters
+        public String getName() { return name; }
+        public int getAge() { return age; }
+        public String getGender() { return gender; }
+        public String getBerthPreference() { return berthPreference; }
+        
+        // Setters
+        public void setName(String name) { this.name = name; }
+        public void setAge(int age) { this.age = age; }
+        public void setGender(String gender) { this.gender = gender; }
+        public void setBerthPreference(String berthPreference) { this.berthPreference = berthPreference; }
     }
 
     public static class PaymentDetails {
@@ -274,6 +287,20 @@ public class IRCTCAutomationService {
         private String cvv;
         private String bankName;
         
-        // Getters and setters
+        // Getters
+        public String getMethod() { return method; }
+        public String getUpiId() { return upiId; }
+        public String getCardNumber() { return cardNumber; }
+        public String getExpiry() { return expiry; }
+        public String getCvv() { return cvv; }
+        public String getBankName() { return bankName; }
+        
+        // Setters
+        public void setMethod(String method) { this.method = method; }
+        public void setUpiId(String upiId) { this.upiId = upiId; }
+        public void setCardNumber(String cardNumber) { this.cardNumber = cardNumber; }
+        public void setExpiry(String expiry) { this.expiry = expiry; }
+        public void setCvv(String cvv) { this.cvv = cvv; }
+        public void setBankName(String bankName) { this.bankName = bankName; }
     }
 } 

@@ -70,7 +70,7 @@ public class CaptchaSolver {
             // Process results
             outputBuffer.rewind();
             float[] probabilities = new float[OUTPUT_SIZE];
-            outputBuffer.get(probabilities);
+            outputBuffer.asFloatBuffer().get(probabilities);
             
             // Convert probabilities to characters
             StringBuilder result = new StringBuilder();
